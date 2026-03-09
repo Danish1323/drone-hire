@@ -1,0 +1,319 @@
+<!-- equipment.html | Equipment Page | DroneHire Neo-Brutalist -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DroneHire – Hardware Inventory</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="equipment.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a class="navbar-brand" href="index.html">DroneHire_</a>
+            <button class="navbar-toggler border-2 border-dark rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <i class="bi bi-list text-dark fs-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav mx-auto gap-2">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Index</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Operations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="zones.html">Airspace</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="equipment.html">Inventory</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3 mt-4 mt-lg-0" id="navAuthArea">
+                    <a href="auth.html" class="nav-link" id="loginLink" style="background:var(--bg-card); border:2px solid var(--border-color);">Authorize</a>
+                    <a href="booking.html" class="btn-primary-custom" style="padding: 10px 20px; font-size: 0.85rem;">Deploy</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <p class="section-label"><i class="bi bi-box-seam"></i> HARDWARE INVENTORY</p>
+            <h1 class="section-title">Drone <span>Arsenal</span></h1>
+            <p class="section-subtitle mt-4">Browse our fleet of industry-leading commercial drones. Filter by operational capabilities below.</p>
+        </div>
+    </section>
+
+    <!-- EQUIPMENT CATALOG -->
+    <section class="py-5">
+        <div class="container">
+            
+            <!-- Filters -->
+            <div class="filter-tabs">
+                <button class="tab-btn active" data-filter="all">All Specs</button>
+                <button class="tab-btn" data-filter="cinema">Cinematics</button>
+                <button class="tab-btn" data-filter="survey">Survey/RTK</button>
+                <button class="tab-btn" data-filter="agriculture">Agriculture</button>
+                <button class="tab-btn" data-filter="inspection">Inspection</button>
+            </div>
+
+            <!-- Drones Grid -->
+            <div class="row g-4" id="equipmentGrid">
+                
+                <!-- Drone 1 -->
+                <div class="col-lg-4 col-md-6 drone-item" data-category="cinema">
+                    <div class="card-dark equipment-card h-100">
+                        <img src="images/dji-mavic-3-pro.webp" alt="DJI Mavic 3 Pro" class="drone-img" onerror="this.src='https://via.placeholder.com/400x300/e4e4e7/09090b?text=MAVIC+3+PRO'">
+                        <div class="drone-info">
+                            <h3 class="drone-name">DJI Mavic 3 Pro</h3>
+                            <p class="drone-desc">Flagship cinematic drone featuring a triple-camera system including a Hasselblad main sensor for unmatched color science and detail.</p>
+                            
+                            <div class="spec-row">
+                                <span class="spec-label">Camera</span>
+                                <span class="spec-value">4/3 CMOS Hasselblad</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Resolution</span>
+                                <span class="spec-value">5.1K / 50fps</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Flight Time</span>
+                                <span class="spec-value">43 Minutes</span>
+                            </div>
+
+                            <div class="cert-badges">
+                                <span class="cert-badge"><i class="bi bi-film me-1"></i> Cinematic</span>
+                                <span class="cert-badge" style="color:var(--text-main);"><i class="bi bi-person-check me-1"></i> Dual-Op</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drone 2 -->
+                <div class="col-lg-4 col-md-6 drone-item" data-category="cinema inspection">
+                    <div class="card-dark equipment-card h-100">
+                        <img src="images/dji-inspire-2.webp" alt="DJI Inspire 2" class="drone-img" onerror="this.src='https://via.placeholder.com/400x300/e4e4e7/09090b?text=INSPIRE+2'">
+                        <div class="drone-info">
+                            <h3 class="drone-name">DJI Inspire 2</h3>
+                            <p class="drone-desc">The industry standard for professional filmmaking and high-end commercial broadcasting. Supports interchangeable Zenmuse lenses.</p>
+                            
+                            <div class="spec-row">
+                                <span class="spec-label">Payload</span>
+                                <span class="spec-value">Zenmuse X7/X5S</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Resolution</span>
+                                <span class="spec-value">6K CinemaDNG RAW</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Flight Time</span>
+                                <span class="spec-value">27 Minutes</span>
+                            </div>
+
+                            <div class="cert-badges">
+                                <span class="cert-badge"><i class="bi bi-camera-reels me-1"></i> Cinema/TV</span>
+                                <span class="cert-badge" style="color:var(--text-main);"><i class="bi bi-speedometer2 me-1"></i> 94 km/h</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drone 3 -->
+                <div class="col-lg-4 col-md-6 drone-item" data-category="survey inspection">
+                    <div class="card-dark equipment-card h-100">
+                        <img src="images/dji-phantom-4-rtk.webp" alt="Phantom 4 RTK" class="drone-img" onerror="this.src='https://via.placeholder.com/400x300/e4e4e7/09090b?text=PHANTOM+4+RTK'">
+                        <div class="drone-info">
+                            <h3 class="drone-name">Phantom 4 RTK</h3>
+                            <p class="drone-desc">Purpose-built for enterprise surveyors, providing centimeter-level accurate mapping with an integrated RTK module.</p>
+                            
+                            <div class="spec-row">
+                                <span class="spec-label">Sensor</span>
+                                <span class="spec-value">1-inch 20MP</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Accuracy</span>
+                                <span class="spec-value">RTK 1cm+1ppm</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Use Case</span>
+                                <span class="spec-value">Orthomosaics</span>
+                            </div>
+
+                            <div class="cert-badges">
+                                <span class="cert-badge"><i class="bi bi-geo-alt me-1"></i> Mapping</span>
+                                <span class="cert-badge" style="color:var(--text-main);"><i class="bi bi-rulers me-1"></i> CM-Level</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drone 4 -->
+                <div class="col-lg-4 col-md-6 drone-item" data-category="survey inspection">
+                    <div class="card-dark equipment-card h-100">
+                        <img src="images/Autel EVO II Pro.webp" alt="Autel EVO II Pro" class="drone-img" onerror="this.src='https://via.placeholder.com/400x300/e4e4e7/09090b?text=EVO+II+PRO'">
+                        <div class="drone-info">
+                            <h3 class="drone-name">Autel EVO II Pro</h3>
+                            <p class="drone-desc">Rugged, versatile enterprise drone with 6K resolution and 360-degree obstacle avoidance. Excellent for complex inspections.</p>
+                            
+                            <div class="spec-row">
+                                <span class="spec-label">Camera</span>
+                                <span class="spec-value">1-inch 6K</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Safety</span>
+                                <span class="spec-value">Omnidirectional</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Flight Time</span>
+                                <span class="spec-value">40 Minutes</span>
+                            </div>
+
+                            <div class="cert-badges">
+                                <span class="cert-badge"><i class="bi bi-shield-check me-1"></i> Inspection</span>
+                                <span class="cert-badge" style="color:var(--text-main);"><i class="bi bi-thermometer-half me-1"></i> Resilient</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drone 5 -->
+                <div class="col-lg-4 col-md-6 drone-item" data-category="agriculture">
+                    <div class="card-dark equipment-card h-100">
+                        <img src="images/DJI Agras T40.webp" alt="DJI Agras T40" class="drone-img" onerror="this.src='https://via.placeholder.com/400x300/e4e4e7/09090b?text=AGRAS+T40'">
+                        <div class="drone-info">
+                            <h3 class="drone-name">DJI Agras T40</h3>
+                            <p class="drone-desc">Heavy-duty agricultural drone equipped with a revolutionary Coaxial Twin Rotor design, perfect for precise spraying and spreading.</p>
+                            
+                            <div class="spec-row">
+                                <span class="spec-label">Payload</span>
+                                <span class="spec-value">40kg Spray / 50kg Spread</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Coverage</span>
+                                <span class="spec-value">21.3 Hectares/Hour</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Radar</span>
+                                <span class="spec-value">Active Phased Array</span>
+                            </div>
+
+                            <div class="cert-badges">
+                                <span class="cert-badge" style="background:var(--success); color:var(--text-main); border-color:var(--border-color);"><i class="bi bi-tree me-1"></i> Agriculture</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drone 6 -->
+                <div class="col-lg-4 col-md-6 drone-item" data-category="inspection cinema">
+                    <div class="card-dark equipment-card h-100">
+                        <img src="images/Skydio 2+.webp" alt="Skydio 2+" class="drone-img" onerror="this.src='https://via.placeholder.com/400x300/e4e4e7/09090b?text=SKYDIO+2+'">
+                        <div class="drone-info">
+                            <h3 class="drone-name">Skydio 2+</h3>
+                            <p class="drone-desc">Powered by advanced AI for unparalleled autonomous subject tracking and obstacle avoidance in dense environments.</p>
+                            
+                            <div class="spec-row">
+                                <span class="spec-label">Autonomy</span>
+                                <span class="spec-value">KeyFrame AI</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Camera</span>
+                                <span class="spec-value">4K/60fps HDR</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Range</span>
+                                <span class="spec-value">6km (Beacon)</span>
+                            </div>
+
+                            <div class="cert-badges">
+                                <span class="cert-badge"><i class="bi bi-cpu me-1"></i> AI Tracking</span>
+                                <span class="cert-badge" style="color:var(--text-main);"><i class="bi bi-ev-front me-1"></i> Action</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4 border-end border-2 border-dark pe-lg-5">
+                    <div class="footer-brand">DroneHire_</div>
+                    <p class="text-muted fw-bold">Uncompromised aerial data delivery and operational superiority.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="btn-outline-custom p-2" style="width:40px;height:40px;"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="btn-outline-custom p-2" style="width:40px;height:40px;"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="btn-outline-custom p-2" style="width:40px;height:40px;"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 ps-lg-5">
+                    <div class="footer-heading">Directories</div>
+                    <a class="footer-link" href="index.html">Home</a>
+                    <a class="footer-link" href="services.html">Operations</a>
+                    <a class="footer-link" href="zones.html">Airspace_Rules</a>
+                    <a class="footer-link" href="equipment.html">Inventory</a>
+                    <a class="footer-link" id="footerBookingsLink" href="#" style="display:none; color:var(--primary); font-weight:700;">My Bookings</a>
+                </div>
+                <div class="col-lg-5 ps-lg-5">
+                    <div class="footer-heading">Comm_Link</div>
+                    <p class="text-main fw-bold mb-2">ops@dronehire.org</p>
+                    <p class="text-main fw-bold mb-2">+91 99000 11000</p>
+                    
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>(C) 2026 DRONEHIRE. ALL RIGHTS ASSUMED.</div>
+                <div class="mt-3 mt-md-0 d-flex gap-4">
+                    <a href="#" class="text-muted">LEGAL</a>
+                    <a href="#" class="text-muted">PRIVACY</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="equipment.js"></script>
+
+    <!-- Auth check script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+             const navAuthArea = document.getElementById('navAuthArea');
+            const currentUser = JSON.parse(localStorage.getItem('dronehire_current_user'));
+            const footerBookingsLink = document.getElementById('footerBookingsLink');
+            
+            if (currentUser && currentUser.name) {
+                // Update footer link visibility
+                if(footerBookingsLink) {
+                    footerBookingsLink.style.display = 'block';
+                    footerBookingsLink.href = 'dashboard.html';
+                }
+
+                navAuthArea.innerHTML = `
+                    <div class="user-profile-badge dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        ${currentUser.name.split(' ')[0].toUpperCase()}
+                    </div>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="dashboard.html">Dashboard</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="#" id="logoutBtn">Terminate_Session</a></li>
+                    </ul>
+                    <a href="booking.html" class="btn-primary-custom ms-2" style="font-size: 0.8rem; padding: 10px 16px;">DEPLOY</a>
+                `;
+
+                document.getElementById('logoutBtn').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    localStorage.removeItem('dronehire_current_user');
+                    window.location.reload();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

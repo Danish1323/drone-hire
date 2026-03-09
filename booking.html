@@ -1,0 +1,276 @@
+<!-- booking.html | Booking Flow | Neo-Brutalist -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DroneHire – Initiate Deployment</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Datepicker CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="stylesheet" href="booking.css?v=2">
+</head>
+<body style="background: var(--bg-main);">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a class="navbar-brand" href="index.html">DroneHire_</a>
+            <button class="navbar-toggler border-2 border-dark rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <i class="bi bi-list text-dark fs-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav mx-auto gap-2">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Index</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Operations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="zones.html">Airspace</a></li>
+                    <li class="nav-item"><a class="nav-link" href="equipment.html">Inventory</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3 mt-4 mt-lg-0" id="navAuthArea">
+                    <a href="auth.html" class="nav-link" id="loginLink" style="background:var(--bg-card); border:2px solid var(--border-color);">Authorize</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                
+                <div class="d-flex align-items-center gap-3 mb-5">
+                    <a href="services.html" class="btn-outline-custom p-2" style="width:44px; height:44px;"><i class="bi bi-arrow-left"></i></a>
+                    <h2 class="mb-0 font-display fw-bold text-uppercase">Deployment <span class="text-primary">Terminal</span></h2>
+                </div>
+
+                <!-- PROGRESS BAR -->
+                <div class="booking-progress mb-5" id="bookingProgress">
+                    <div class="step-item active" data-step="1">
+                        <div class="step-circle">1</div>
+                        <div class="step-label">Hardware</div>
+                    </div>
+                    <div class="step-item" data-step="2">
+                        <div class="step-circle">2</div>
+                        <div class="step-label">Schedule</div>
+                    </div>
+                    <div class="step-item" data-step="3">
+                        <div class="step-circle">3</div>
+                        <div class="step-label">Clearance</div>
+                    </div>
+                </div>
+
+                <div class="row g-5">
+                    <!-- LEFT COLUMN: FORMS -->
+                    <div class="col-lg-7">
+                        
+                        <!-- STEP 1: EQUIPMENT -->
+                        <div class="booking-panel active card-dark" id="step1Panel">
+                            <h3 class="mb-4 font-display fw-bold text-uppercase">Select Hardware</h3>
+                            <div class="heavy-divider mb-4"></div>
+                            <p class="text-muted mb-4 fw-bold small">Choose the primary aerial unit for this operation.</p>
+                            
+                            <div class="select-grid" id="equipmentSelectGrid">
+                                <!-- Populated by JS -->
+                            </div>
+
+                            <button id="btnNextToStep2" class="btn-primary-custom w-100 mt-2" onclick="nextStep(2)">Proceed to Scheduling <i class="bi bi-arrow-right fw-bold ms-1"></i></button>
+                        </div>
+
+                        <!-- STEP 2: DATE & TIME -->
+                        <div class="booking-panel card-dark" id="step2Panel">
+                            <h3 class="mb-4 font-display fw-bold text-uppercase">Operation Window</h3>
+                            <div class="heavy-divider mb-4"></div>
+                            
+                            <div class="mb-5">
+                                <label class="form-label-custom">Select Date</label>
+                                <input type="text" id="datePicker" class="form-control form-control-custom" placeholder="YYYY-MM-DD" readonly>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label-custom">Select Duration (Days)</label>
+                                <select id="durationSelect" class="form-control form-control-custom">
+                                    <option value="1">1 Day</option>
+                                    <option value="2">2 Days</option>
+                                    <option value="3">3 Days</option>
+                                    <option value="5">5 Days</option>
+                                    <option value="7">1 Week</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-5">
+                                <label class="form-label-custom">Select Initial Time Slot</label>
+                                <div class="select-grid" id="timeSlotGrid">
+                                    <div class="select-btn time-btn" data-time="06:00 AM">06:00 AM</div>
+                                    <div class="select-btn time-btn" data-time="09:00 AM">09:00 AM</div>
+                                    <div class="select-btn time-btn" data-time="12:00 PM">12:00 PM</div>
+                                    <div class="select-btn time-btn" data-time="03:00 PM">03:00 PM</div>
+                                    <div class="select-btn time-btn" data-time="06:00 PM">06:00 PM</div>
+                                </div>
+                                <p id="availabilityWarning" class="text-danger small fw-bold mt-2" style="display:none;"><i class="bi bi-exclamation-triangle-fill"></i> Equipment unavailable for the selected slot. Choose another.</p>
+                            </div>
+
+                            <div class="d-flex gap-3 mt-4">
+                                <button id="btnPrevToStep1" class="btn-secondary-custom flex-grow-1" onclick="prevStep(1)">Back</button>
+                                <button id="btnNextToStep3" class="btn-primary-custom flex-grow-1" onclick="nextStep(3)">Review Details <i class="bi bi-arrow-right fw-bold ms-1"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- STEP 3: DETAILS & REVIEW -->
+                        <div class="booking-panel card-dark" id="step3Panel">
+                            <h3 class="mb-4 font-display fw-bold text-uppercase">Flight Clearance</h3>
+                            <div class="heavy-divider mb-4"></div>
+                            
+                            <form id="bookingForm">
+                                <h5 class="mb-3 font-display fw-bold">Operator Details</h5>
+                                <div class="form-grid mb-4">
+                                    <div>
+                                        <label class="form-label-custom">Full Name</label>
+                                        <input type="text" id="clientName" class="form-control form-control-custom" required>
+                                    </div>
+                                    <div>
+                                        <label class="form-label-custom">Contact Number</label>
+                                        <input type="tel" id="clientPhone" class="form-control form-control-custom" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="form-label-custom">Email Address</label>
+                                    <input type="email" id="clientEmail" class="form-control form-control-custom" required>
+                                </div>
+
+                                <div class="mb-5">
+                                    <label class="form-label-custom">Operation Coordinates (Address)</label>
+                                    <textarea id="clientAddress" class="form-control form-control-custom" rows="3" required></textarea>
+                                </div>
+
+                                <div class="d-flex gap-3">
+                                    <button type="button" id="btnPrevToStep2" class="btn-secondary-custom flex-grow-1" onclick="prevStep(2)">Back</button>
+                                    <button type="submit" class="btn-primary-custom flex-grow-1" id="confirmBtn">
+                                        <span id="btnText">Execute Mission</span>
+                                        <div class="spinner-border spinner-border-sm ms-2 d-none" role="status" id="btnSpinner"></div>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- SUCCESS PANEL -->
+                        <div class="booking-panel card-dark text-center py-5" id="successPanel">
+                            <div class="success-checkmark"><i class="bi bi-check-lg"></i></div>
+                            <h2 class="mb-3 font-display fw-bold text-uppercase">Clearance Granted</h2>
+                            <p class="text-muted mb-4 fs-5 fw-bold">Operation #<span id="bookingRefID" class="text-main">100X</span> logged successfully.</p>
+                            <p class="mb-5 text-main fw-bold">Invoice and Operator credentials have been transmitted to your email.</p>
+                            <div class="d-flex justify-content-center gap-3">
+                                <button id="downloadInvoiceBtn" class="btn-outline-custom"><i class="bi bi-file-earmark-pdf me-2"></i> Fetch Invoice</button>
+                                <a href="index.html" class="btn-primary-custom">Return to Index</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- RIGHT COLUMN: SUMMARY -->
+                    <div class="col-lg-5">
+                        <div class="summary-box" id="summaryBox">
+                            <h4 class="mb-4 font-display fw-bold text-uppercase">Manifest</h4>
+                            <div class="heavy-divider mb-4"></div>
+                            
+                            <div class="summary-item">
+                                <span class="summary-label">Operation</span>
+                                <span class="summary-value" id="sumService">Select Service</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Hardware</span>
+                                <span class="summary-value" id="sumEquipment">None</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Date</span>
+                                <span class="summary-value" id="sumDate">Not set</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Time</span>
+                                <span class="summary-value" id="sumTime">Not set</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Duration</span>
+                                <span class="summary-value" id="sumDuration">1 Day</span>
+                            </div>
+                            
+                            <div class="summary-total mt-4">
+                                <span class="summary-label">Est. Cost</span>
+                                <span class="summary-value" id="sumTotal">₹0</span>
+                            </div>
+                            <p class="text-muted small mt-3 fw-bold"><i class="bi bi-shield-lock me-1"></i> Data encrypted and securely stored locally.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals and Libraries -->
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="booking.js?v=3"></script>
+
+    <!-- Auth check script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navAuthArea = document.getElementById('navAuthArea');
+            const currentUser = JSON.parse(localStorage.getItem('dronehire_current_user'));
+            
+            if (currentUser && currentUser.name) {
+                navAuthArea.innerHTML = `
+                   <div class="user-profile-badge dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        ${currentUser.name.split(' ')[0].toUpperCase()}
+                    </div>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="dashboard.html">Dashboard</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="#" id="logoutBtn">Terminate_Session</a></li>
+                    </ul>
+                `;
+
+                // Auto-fill forms
+                document.getElementById('clientName').value = currentUser.name;
+                document.getElementById('clientEmail').value = currentUser.email;
+
+                document.getElementById('logoutBtn').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    localStorage.removeItem('dronehire_current_user');
+                    window.location.reload();
+                });
+            } else {
+                // Force login for booking
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'UNAUTHORIZED ACCESS',
+                    text: 'Operator credentials required for deployment.',
+                    confirmButtonText: 'Authorize Now',
+                    confirmButtonColor: '#2563EB',
+                    background: 'var(--bg-card)',
+                    color: '#09090B',
+                    customClass: {
+                        popup: 'border border-2 border-dark rounded-0',
+                        confirmButton: 'btn-primary-custom rounded-0'
+                    }
+                }).then(() => {
+                    window.location.href = 'auth.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

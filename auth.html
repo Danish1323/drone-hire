@@ -1,0 +1,86 @@
+<!-- auth.html | Operator Authorization | DroneHire -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DroneHire – Operator Auth</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body style="background: var(--bg-main);">
+
+    <div class="auth-container">
+        
+        <div class="auth-box">
+            
+            <a href="index.html" class="d-inline-flex align-items-center fw-bold text-muted mb-4" style="text-decoration: none; font-size: 0.85rem; font-family:var(--font-display); text-transform:uppercase;">
+                <i class="bi bi-arrow-left me-2"></i> Return to Index
+            </a>
+
+            <div class="auth-header">
+                <div class="auth-logo">DroneHire_</div>
+                <h2 class="auth-title">Terminal Access</h2>
+                <p class="auth-subtitle">Establish a secure operator connection.</p>
+            </div>
+
+            <!-- Custom Tabs -->
+            <div class="auth-tabs">
+                <div class="auth-tab active" id="tabLogin" onclick="switchAuthTab('login')">Initialize</div>
+                <div class="auth-tab" id="tabRegister" onclick="switchAuthTab('register')">Register</div>
+            </div>
+
+            <div id="generalError" class="auth-error">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i><span id="generalErrorText">Error message</span>
+            </div>
+
+            <!-- LOGIN FORM -->
+            <form id="loginForm" class="auth-form active">
+                <div class="mb-4">
+                    <label class="auth-label">Operator Email</label>
+                    <input type="email" id="loginEmail" class="auth-input" placeholder="ops@dronehire.org" required>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="auth-label">Security Keycard</label>
+                    <input type="password" id="loginPassword" class="auth-input" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="auth-btn">Authorize Access</button>
+                <a href="#" class="form-text-link">Reset Keycard?</a>
+            </form>
+
+            <!-- REGISTER FORM -->
+            <form id="registerForm" class="auth-form">
+                <div class="mb-4">
+                    <label class="auth-label">Operator Full Name</label>
+                    <input type="text" id="regName" class="auth-input" placeholder="John Doe" required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="auth-label">Operator Email</label>
+                    <input type="email" id="regEmail" class="auth-input" placeholder="ops@dronehire.org" required>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="auth-label">Assign Keycard</label>
+                    <input type="password" id="regPassword" class="auth-input" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="auth-btn" style="background: var(--bg-dark);">Generate Identity</button>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Auth Logic -->
+    <script src="auth.js"></script>
+
+</body>
+</html>

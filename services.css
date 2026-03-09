@@ -1,0 +1,109 @@
+/* services.css | Services Page Specific Styles | Neo-Brutalist Edition */
+
+.service-card {
+  cursor: pointer;
+  position: relative;
+  transition: all 0.1s;
+  padding: 32px !important;
+  border-radius: 0;
+  border: 2px solid var(--border-color);
+  background: var(--bg-card);
+  box-shadow: 4px 4px 0px var(--border-color);
+}
+
+.service-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0px var(--border-color);
+}
+
+.service-card.selected {
+  border-color: var(--primary) !important;
+  background: var(--bg-main) !important;
+  box-shadow: 8px 8px 0px var(--primary) !important;
+  transform: translate(-4px, -4px);
+}
+
+.check-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--primary);
+  color: var(--bg-dark);
+  border: 2px solid var(--border-color);
+  display: none; 
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 900;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  box-shadow: 2px 2px 0px var(--border-color);
+}
+
+.service-card.selected .check-icon {
+  display: flex; 
+}
+
+.price-tag {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.05em;
+  word-wrap: break-word;
+  background: var(--bg-main);
+  padding: 8px 16px;
+  display: inline-block;
+  border: 2px solid var(--border-color);
+  margin-bottom: 24px;
+}
+
+@media (max-width: 1200px) {
+    .price-tag {
+        font-size: 1.5rem;
+    }
+}
+
+.price-tag span {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.feature-list {
+    margin-top: 24px;
+}
+
+.feature-list li {
+  color: var(--text-main);
+  font-size: 0.95rem;
+  padding: 10px 0;
+  display: flex;
+  align-items: flex-start; 
+  text-align: left;
+  gap: 12px;
+  line-height: 1.5;
+  font-weight: 500;
+  border-bottom: 2px solid var(--border-color);
+}
+.feature-list li:last-child {
+    border-bottom: none;
+}
+
+.feature-list li::before {
+  content: '>';
+  color: var(--primary);
+  font-weight: 900;
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 2px; 
+}
+
+#selectionStatus {
+  display: none;
+  margin-top: 40px;
+  background: transparent;
+  padding-bottom: 30px;
+}

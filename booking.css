@@ -1,0 +1,326 @@
+/* booking.css | Booking Page | Neo-Brutalist Edition */
+
+/* === PROGRESS STEPS === */
+.booking-progress {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 40px;
+  padding: 0 10px;
+}
+.booking-progress::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 30px;
+  right: 30px;
+  height: 4px;
+  background: var(--border-color);
+  z-index: 1;
+}
+
+.step-item {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 80px;
+}
+
+.step-circle {
+  width: 40px;
+  height: 40px;
+  background: var(--text-main);
+  border: 4px solid var(--border-color);
+  border-radius: 0; /* Square for brutalism */
+  color: var(--bg-card); /* was text-main */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  transition: all 0.2s;
+}
+
+.step-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.step-item.active .step-circle {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--bg-dark);
+  box-shadow: 4px 4px 0px var(--border-color);
+  transform: translate(-2px, -2px);
+}
+.step-item.active .step-label {
+  color: var(--primary);
+}
+
+.step-item.completed .step-circle {
+  background: var(--border-color);
+  border-color: var(--border-color);
+  color: var(--text-main);
+}
+.step-item.completed .step-label {
+  color: var(--text-main);
+}
+
+/* === BOOKING PANELS === */
+.booking-panel {
+  display: none;
+  animation: slideIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.booking-panel.active {
+  display: block;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === SUMMARY BOX === */
+.summary-box {
+  background: var(--bg-main);
+  border: 4px solid var(--border-color);
+  border-radius: 0;
+  padding: 30px;
+  position: sticky;
+  top: 100px;
+  box-shadow: var(--shadow-hard);
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 2px dashed var(--border-color);
+  font-size: 0.95rem;
+}
+.summary-item:last-child {
+  border-bottom: none;
+}
+
+.summary-label {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+}
+
+.summary-value {
+  color: var(--text-main);
+  font-weight: 700;
+  font-family: var(--font-body);
+  text-align: right;
+  max-width: 60%;
+  word-wrap: break-word;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 24px;
+  border-top: 4px solid var(--border-color);
+}
+.summary-total .summary-label {
+  font-size: 1.2rem;
+  color: var(--text-main);
+}
+.summary-total .summary-value {
+  font-size: 1.8rem;
+  color: var(--primary);
+  font-family: var(--font-display);
+  font-weight: 900;
+}
+
+/* === FORM GRIDS === */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+@media (max-width: 768px) {
+  .form-grid { grid-template-columns: 1fr; }
+}
+
+/* === DATE / TIME / EQUIPMENT PICKER === */
+.select-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.select-btn {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: 0;
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.1s;
+  color: var(--text-main);
+  font-weight: 600;
+  box-shadow: 2px 2px 0px var(--border-color);
+  font-family: var(--font-body);
+}
+
+.select-btn:hover {
+  background: var(--bg-main);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px var(--border-color);
+}
+
+.select-btn.selected {
+  background: var(--text-main) !important;
+  color: var(--bg-dark) !important;
+  border-color: var(--text-main) !important;
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.select-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--bg-main);
+  color: var(--text-muted);
+  box-shadow: none;
+  border-style: dashed;
+}
+.select-btn.disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.time-btn {
+    padding: 12px;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.equipment-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 20px 10px;
+}
+.equipment-btn img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 0;
+    margin-bottom: 8px;
+    filter: grayscale(100%);
+    border: 2px solid var(--border-color);
+}
+.equipment-btn.selected img {
+    filter: grayscale(0%);
+    border-color: var(--text-main);
+}
+.equipment-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.2;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+}
+.equipment-price {
+    font-size: 0.8rem;
+    color: var(--primary);
+    font-weight: 900;
+    font-family: var(--font-body);
+}
+.equipment-btn.selected .equipment-price {
+    color: var(--bg-dark);
+}
+
+/* === EQUIPMENT RECOMMENDATION & SPECS === */
+.recommended-badge {
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    background: var(--primary);
+    color: var(--bg-dark);
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    text-transform: uppercase;
+    border: 2px solid var(--border-color);
+    box-shadow: 2px 2px 0px var(--border-color);
+    z-index: 2;
+}
+
+.equipment-specs {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+    text-align: left;
+    width: 100%;
+}
+
+.equipment-specs li {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    margin-bottom: 4px;
+    position: relative;
+    padding-left: 12px;
+    line-height: 1.3;
+}
+
+.equipment-specs li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: 900;
+    font-family: var(--font-display);
+}
+
+.equipment-btn.selected .equipment-specs li::before {
+    color: rgba(30,32,43, 0.8);
+}
+.equipment-btn.selected .equipment-specs li {
+    color: var(--bg-dark);
+    font-weight: 600;
+}
+
+/* === SUCCESS ANIMATION (Brutalist Style) === */
+.success-checkmark {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 30px;
+  border-radius: 0;
+  background: var(--success);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg-dark);
+  font-size: 3rem;
+  border: 4px solid var(--border-color);
+  box-shadow: 8px 8px 0px var(--border-color);
+  animation: brutalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes brutalPop {
+  0% { transform: scale(0) rotate(-10deg); }
+  50% { transform: scale(1.1) rotate(5deg); }
+  100% { transform: scale(1) rotate(0); }
+}

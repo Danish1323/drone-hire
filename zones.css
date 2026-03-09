@@ -1,0 +1,133 @@
+/* zones.css | Zones Page | Neo-Brutalist Edition */
+
+.zone-card {
+  position: relative;
+  border: 2px solid var(--border-color);
+  border-left-width: 8px !important;
+  border-left-style: solid !important;
+  transition: all 0.1s;
+  background: var(--bg-card);
+  border-radius: 0;
+  box-shadow: var(--shadow-hard);
+  padding: 24px;
+}
+
+.zone-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: var(--shadow-hard-hover);
+}
+
+.zone-green { border-left-color: var(--success) !important; }
+.zone-yellow { border-left-color: #EAB308 !important; }
+.zone-red { border-left-color: var(--danger) !important; }
+.zone-blue { border-left-color: var(--primary) !important; }
+
+.zone-indicator {
+  width: 14px;
+  height: 14px;
+  border-radius: 0; /* Square indicators for brutalism */
+  display: inline-block;
+  margin-right: 12px;
+  flex-shrink: 0;
+  border: 2px solid var(--border-color);
+}
+
+.zone-green .zone-indicator  { background: var(--success); }
+.zone-yellow .zone-indicator { background: #EAB308; }
+.zone-red .zone-indicator    { background: var(--danger); }
+.zone-blue .zone-indicator   { background: var(--primary); }
+
+.zone-badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  padding: 4px 10px;
+  border-radius: 0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 2px solid var(--border-color) !important;
+  box-shadow: 2px 2px 0px var(--border-color);
+}
+
+.zone-badge-green  { background: var(--bg-card); color: var(--success); border-color: var(--success) !important; }
+.zone-badge-yellow { background: var(--bg-card); color: #EAB308; border-color: #EAB308 !important; }
+.zone-badge-red    { background: var(--bg-card); color: var(--danger); border-color: var(--danger) !important; }
+.zone-badge-blue   { background: var(--bg-card); color: var(--primary); border-color: var(--primary) !important; }
+
+.zone-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 2px solid var(--border-color);
+  font-size: 0.95rem;
+}
+
+.zone-info-row:last-child { border-bottom: none; }
+
+.zone-info-label { color: var(--text-muted); font-weight: 600; text-transform: uppercase; font-family: var(--font-display); }
+
+.zone-info-value {
+  color: var(--text-main);
+  font-weight: 700;
+  font-family: var(--font-body);
+}
+
+.regulation-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 2px solid var(--border-color);
+  font-size: 0.95rem;
+  color: var(--text-main);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.regulation-item:last-child {
+  border-bottom: none;
+}
+
+.regulation-item i {
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-size: 1.2rem;
+  color: var(--border-color); /* Strict structural outline */
+}
+
+#zoneResult {
+  display: none;
+  margin-top: 30px;
+  padding: 30px;
+  border-radius: 0;
+  border: 2px solid var(--border-color);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-hard);
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 0;
+  border: 2px solid var(--border-color);
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  color: var(--text-main);
+  padding: 8px 18px;
+  border: 2px solid var(--border-color);
+  border-radius: 0;
+  background: var(--bg-card);
+  box-shadow: 2px 2px 0px var(--border-color);
+  text-transform: uppercase;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}

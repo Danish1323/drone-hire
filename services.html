@@ -1,0 +1,171 @@
+<!-- services.html | Services Page | DroneHire Neo-Brutalist -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DroneHire – Operations Menu</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="services.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a class="navbar-brand" href="index.html">DroneHire_</a>
+            <button class="navbar-toggler border-2 border-dark rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <i class="bi bi-list text-dark fs-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav mx-auto gap-2">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Index</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="services.html">Operations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="zones.html">Airspace</a></li>
+                    <li class="nav-item"><a class="nav-link" href="equipment.html">Inventory</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3 mt-4 mt-lg-0" id="navAuthArea">
+                    <a href="auth.html" class="nav-link" id="loginLink" style="background:var(--bg-card); border:2px solid var(--border-color);">Authorize</a>
+                    <a href="booking.html" class="btn-primary-custom" style="padding: 10px 20px; font-size: 0.85rem;">Deploy</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SERVICES CARDS -->
+    <section class="py-5" style="background: var(--bg-main); padding-top: 40px !important;">
+        <div class="container">
+            <div class="row g-4 justify-content-center">
+                
+                <!-- Wedding -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card-dark service-card h-100" data-service="Wedding Cinematography">
+                        <i class="bi bi-check-lg check-icon"></i>
+                        <h4 class="mb-2">Wedding Cinematics</h4>
+                        <div class="price-tag mb-4">Base ₹25,000 / day</div>
+                        <ul class="feature-list list-unstyled">
+                            <li>Full event coverage</li>
+                            <li>Dual-operator setup</li>
+                            <li>4K final delivery</li>
+                            <li>Raw footage included</li>
+                        </ul>
+                        <div class="mt-auto pt-3 border-top border-2 border-dark font-monospace fw-bold small text-muted">REF: OP-W01</div>
+                    </div>
+                </div>
+
+                <!-- Real Estate -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card-dark service-card h-100" data-service="Real Estate Photography">
+                        <i class="bi bi-check-lg check-icon"></i>
+                        <h4 class="mb-2">Real Estate</h4>
+                        <div class="price-tag mb-4">Base ₹10,000 / day</div>
+                        <ul class="feature-list list-unstyled">
+                            <li>Property boundaries</li>
+                            <li>360° virtual tours</li>
+                            <li>Neighborhood pan</li>
+                            <li>High-res stills</li>
+                        </ul>
+                        <div class="mt-auto pt-3 border-top border-2 border-dark font-monospace fw-bold small text-muted">REF: OP-R02</div>
+                    </div>
+                </div>
+
+                <!-- Event -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card-dark service-card h-100" data-service="Event Coverage">
+                        <i class="bi bi-check-lg check-icon"></i>
+                        <h4 class="mb-2">Event Coverage</h4>
+                        <div class="price-tag mb-4">Base ₹18,000 / day</div>
+                        <ul class="feature-list list-unstyled">
+                            <li>Live stream capable</li>
+                            <li>Multi-angle coverage</li>
+                            <li>Dynamic tracking</li>
+                            <li>Social media shorts</li>
+                        </ul>
+                        <div class="mt-auto pt-3 border-top border-2 border-dark font-monospace fw-bold small text-muted">REF: OP-E03</div>
+                    </div>
+                </div>
+
+                <!-- Surveying -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card-dark service-card h-100" data-service="Land Surveying">
+                        <i class="bi bi-check-lg check-icon"></i>
+                        <h4 class="mb-2">Topography</h4>
+                        <div class="price-tag mb-4">Base ₹35,000 / day</div>
+                        <ul class="feature-list list-unstyled">
+                            <li>3D Point Clouds</li>
+                            <li>CM-level accuracy</li>
+                            <li>Orthomosaics</li>
+                            <li>Volumetric analysis</li>
+                        </ul>
+                        <div class="mt-auto pt-3 border-top border-2 border-dark font-monospace fw-bold small text-muted">REF: OP-T04</div>
+                    </div>
+                </div>
+
+                <!-- Custom -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card-dark service-card h-100" data-service="Custom Drone Operation">
+                        <i class="bi bi-check-lg check-icon"></i>
+                        <h4 class="mb-2">Custom Op</h4>
+                        <div class="price-tag mb-4">Variable</div>
+                        <ul class="feature-list list-unstyled">
+                            <li>Bespoke parameters</li>
+                            <li>Specialized hardware</li>
+                            <li>Uncapped duration</li>
+                            <li>Direct consultation</li>
+                        </ul>
+                        <div class="mt-auto pt-3 border-top border-2 border-dark font-monospace fw-bold small text-muted">REF: OP-C05</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SELECTION STATUS BAR -->
+    <div id="selectionStatus" class="container" style="display: none; padding-bottom: 40px;">
+        <div style="background: var(--border-color); padding: 24px; color: var(--text-main); display: inline-block; width: 100%; box-shadow: var(--shadow-hard);">
+            <p class="text-white-50 mb-1 fw-bold font-monospace" style="font-size: 0.9rem;">> CURRENT SELECTION:</p>
+            <h3 id="selectedServiceName" class="mb-4 text-white" style="font-weight: 700; text-transform:uppercase;">N/A</h3>
+            <a href="booking.html" class="btn-primary-custom" style="border-color:var(--text-main);">PROCEED TO DEPLOYMENT</a>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="services.js?v=2"></script>
+
+    <!-- Auth check script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navAuthArea = document.getElementById('navAuthArea');
+            const currentUser = JSON.parse(localStorage.getItem('dronehire_current_user'));
+            
+            if (currentUser && currentUser.name) {
+                navAuthArea.innerHTML = `
+                   <div class="user-profile-badge dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        ${currentUser.name.split(' ')[0].toUpperCase()}
+                    </div>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="dashboard.html">Dashboard</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="#" id="logoutBtn">Terminate_Session</a></li>
+                    </ul>
+                    <a href="booking.html" class="btn-primary-custom ms-2" style="font-size: 0.8rem; padding: 10px 16px;">DEPLOY</a>
+                `;
+
+                document.getElementById('logoutBtn').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    localStorage.removeItem('dronehire_current_user');
+                    window.location.reload();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
